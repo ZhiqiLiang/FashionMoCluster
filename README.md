@@ -130,15 +130,15 @@ python train_finetuning_spectral_clustering.py --data_path <path_to_data> --mode
 
 Here are the crucial constants and their locations:
 
-* **data_path**: Path to the dataset for generating embeddings (passed as a command-line argument).
-* **model_save_path**: Directory where the fine-tuned model and checkpoints are saved (passed as a command-line argument).
-* **embedding_save_path**: Directory to save the generated embeddings and final clustering results (passed as a command-line argument).
-* **batch_size**: The batch size used for generating embeddings (passed as a command-line argument).
-* **lr**: Learning rate for fine-tuning (passed as a command-line argument).
-* **num_epochs**: The number of epochs to fine-tune the model (passed as a command-line argument).
-* **num_clusters**: The number of clusters for spectral clustering (passed as a command-line argument).
-* **save_every_n_epochs**: How frequently to save model checkpoints (passed as a command-line argument).
-* **patience**: Early stopping patience to stop training if no improvement is observed (passed as a command-line argument).
+* `data_path`: Path to the dataset for generating embeddings (passed as a command-line argument).
+* `model_save_path`: Directory where the fine-tuned model and checkpoints are saved (passed as a command-line argument).
+* `embedding_save_path`: Directory to save the generated embeddings and final clustering results (passed as a command-line argument).
+* `batch_size`: The batch size used for generating embeddings (passed as a command-line argument).
+* `lr`: Learning rate for fine-tuning (passed as a command-line argument).
+* `num_epochs`: The number of epochs to fine-tune the model (passed as a command-line argument).
+* `num_clusters`: The number of clusters for spectral clustering (passed as a command-line argument).
+* `save_every_n_epochs`: How frequently to save model checkpoints (passed as a command-line argument).
+* `patience`: Early stopping patience to stop training if no improvement is observed (passed as a command-line argument).
 
 #### (3) Main Classes, Procedures, Methods, and Data Structures:
 
@@ -220,9 +220,9 @@ results, comparison = experiment.run_experiment(
 
 Here are the key constants:
 
-- **n_clusters**: Specifies the number of clusters (default: 10).
-- **pca_components**: Number of components to keep when performing PCA (default: 128).
-- **methods**: A list of the clustering methods to be used, including options like 'PCA-KMeans', 'PCA-Spectral', and 'MoCo Pretraining Embeddings'.
+- `n_clusters`: Specifies the number of clusters (default: 10).
+- `pca_components`: Number of components to keep when performing PCA (default: 128).
+- `methods`: A list of the clustering methods to be used, including options like 'PCA-KMeans', 'PCA-Spectral', and 'MoCo Pretraining Embeddings'.
 
 #### (3) Main Classes, Procedures, Methods, and Data Structures:
 
@@ -320,38 +320,38 @@ Here are the crucial constants:
 
 * **Main Classes**:
 
-  - **BasicAugmentation**: Implements basic augmentation techniques (e.g., random horizontal flip, rotation) for the ablation study configurations (cases a-c).
+  - `BasicAugmentation`: Implements basic augmentation techniques (e.g., random horizontal flip, rotation) for the ablation study configurations (cases a-c).
 
-  - **AdvancedAugmentation**: Applies more complex augmentations such as Gaussian blur, noise, and Sobel filter for cases d and above.
+  - `AdvancedAugmentation`: Applies more complex augmentations such as Gaussian blur, noise, and Sobel filter for cases d and above.
 
-  - **SimpleConvBlock**: A simple convolutional block without residual connections, used in the baseline model (case a).
+  - `SimpleConvBlock`: A simple convolutional block without residual connections, used in the baseline model (case a).
 
-  - **ResidualBlock**: A convolutional block with skip connections to form residual networks (used in case b and above).
+  - `ResidualBlock`: A convolutional block with skip connections to form residual networks (used in case b and above).
 
-  - **ProjectionHead**: An MLP used for projecting the features into a space suitable for contrastive learning (used in cases c, d, e).
+  - `ProjectionHead`: An MLP used for projecting the features into a space suitable for contrastive learning (used in cases c, d, e).
 
-  - **IdentityProjection**: A simple identity projection that bypasses any projection head, used for ablation.
+  - `IdentityProjection`: A simple identity projection that bypasses any projection head, used for ablation.
 
-  - **BaseNetwork**: The main model architecture that can be configured with different block types (simple vs. residual) and other components like MLP projection or augmentation strategies.
+  - `BaseNetwork`: The main model architecture that can be configured with different block types (simple vs. residual) and other components like MLP projection or augmentation strategies.
 
 * **Key Methods**:
 
-  - **`get_config(case)`**: Returns a configuration dictionary for each ablation study case, where `case` can be any of the predefined configurations ('a' to 'g').
+  - `get_config(case)`: Returns a configuration dictionary for each ablation study case, where `case` can be any of the predefined configurations ('a' to 'g').
 
-  - **`train_and_evaluate(config, data_path, save_dir)`**: The core function that trains the model according to the configuration and evaluates the results.
+  - `train_and_evaluate(config, data_path, save_dir)`: The core function that trains the model according to the configuration and evaluates the results.
 
-  - **`create_model(config)`**: Builds the model based on the configuration, selecting between simple or residual blocks and including projection heads or not.
+  - `create_model(config)`: Builds the model based on the configuration, selecting between simple or residual blocks and including projection heads or not.
 
-  - **`contrastive_loss(q, k, queue, epoch, total_epochs)`**: Computes the contrastive loss (InfoNCE) between the query and key pairs, with temperature annealing.
+  - `contrastive_loss(q, k, queue, epoch, total_epochs)`: Computes the contrastive loss (InfoNCE) between the query and key pairs, with temperature annealing.
 
-  - **`evaluate_clustering(features, labels, n_clusters=10)`**: Evaluates the clustering performance of the embeddings produced by the model.
+  - `evaluate_clustering(features, labels, n_clusters=10)`: Evaluates the clustering performance of the embeddings produced by the model.
 
 * **Data Structures**:
 
-  - **FashionMNISTDataset**: Custom dataset for loading and transforming the FashionMNIST dataset, which is used in the experiments.
+  - `FashionMNISTDataset`: Custom dataset for loading and transforming the FashionMNIST dataset, which is used in the experiments.
 
-  - **EmbeddingDataset**: Dataset used for generating embeddings from the trained model.
+  - `EmbeddingDataset`: Dataset used for generating embeddings from the trained model.
 
-  - **queue**: A memory queue used for contrastive learning to store negative samples, facilitating efficient training.
+  - `queue`: A memory queue used for contrastive learning to store negative samples, facilitating efficient training.
 
 * **Key Flow**: please see the detailed experiment design in the paper.
