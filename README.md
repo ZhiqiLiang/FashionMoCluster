@@ -1,5 +1,9 @@
 # Exploring the Boundaries of Unsupervised Learning for Fashion-MNIST via Momentum Constrast and Cluster-based Finetuning
 
+<p align="center">
+  Written by Zhiqi Liang
+</p>
+
 This repository provides the code implementation of the graduation thesis "Exploring the Boundaries of Unsupervised Learning for Fashion-MNIST via Momentum Constrast and Cluster-based Finetuning", including all the training script (MoCo pretraining, Spectral-Clustering-based finetuning), experiment script (comparison, ablation study, visualization) and necessary data and model weights.
 
 ![method](assets/method.png)
