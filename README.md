@@ -2,6 +2,8 @@
 
 This repository provides the code implementation of the graduation thesis "Exploring the Boundaries of Unsupervised Learning for Fashion-MNIST via Momentum Constrast and Cluster-based Finetuning", including all the training script (MoCo pretraining, Spectral-Clustering-based finetuning), experiment script (comparison, ablation study, visualization) and necessary data and model weights.
 
+![method](assets/method.png)
+
 ## Installation
 
 To run the code, make sure you have Python 3.8+ and the following dependencies installed. You can set up a virtual environment and install dependencies using the following commands:
@@ -243,34 +245,33 @@ Here are the key constants:
 
 * **Key Methods**
 
-  - **`load_data()`**: Loads the data, including both the test data and any feature data (such as MoCo embeddings).
+  - `load_data()`: Loads the data, including both the test data and any feature data (such as MoCo embeddings).
 
-  - **`run_kmeans()`**: Runs K-means clustering on the feature data and tracks resource usage.
+  - `run_kmeans()`: Runs K-means clustering on the feature data and tracks resource usage.
 
-  - **`run_spectral_clustering()`**: Runs Spectral clustering on the feature data and tracks resource usage.
+  - `run_spectral_clustering()`: Runs Spectral clustering on the feature data and tracks resource usage.
 
-  - **`evaluate_clustering()`**: Calculates clustering evaluation metrics such as ARI, NMI, and Silhouette score.
+  - `evaluate_clustering()`: Calculates clustering evaluation metrics such as ARI, NMI, and Silhouette score.
 
-  - **`visualize_2d_clusters()`**: Visualizes the clustering results in a 2D plot.
+  - `visualize_2d_clusters()`: Visualizes the clustering results in a 2D plot.
 
-  - **`visualize_cluster_distribution()`**: Visualizes the distribution of true labels within each cluster.
+  - `visualize_cluster_distribution()`: Visualizes the distribution of true labels within each cluster.
 
-  - **`export_cluster_distribution_to_csv()`**: Saves the label distribution for each cluster into a CSV file.
+  - `export_cluster_distribution_to_csv()`: Saves the label distribution for each cluster into a CSV file.
 
 * **Data Structures**
-
-  - **`df_test`**: DataFrame containing the test data, including image features and labels.
-
-  - **`feature_dataframes`**: Dictionary storing feature DataFrames for different methods.
-
-  - **`feature_arrays`**: Dictionary storing the actual feature arrays for each method.
-
-  - **`true_labels`**: Array containing the true labels of the test dataset.
-
-  - **`label_names`**: Dictionary mapping label IDs to their human-readable names (e.g., T-shirt, Trouser).
-
-  - **`colors`**: List of colors used for plotting different clusters.
-
+  - `df_test`: DataFrame containing the test data, including image features and labels.
+  
+  - `feature_dataframes`: Dictionary storing feature DataFrames for different methods.
+  
+  - `feature_arrays`: Dictionary storing the actual feature arrays for each method.
+  
+  - `true_labels`: Array containing the true labels of the test dataset.
+  
+  - `label_names`: Dictionary mapping label IDs to their human-readable names (e.g., T-shirt, Trouser).
+  
+  - `colors`: List of colors used for plotting different clusters.
+  
 * **Key Flow:** please see the detailed experiment design in the paper.
 
 ### 3. File Overview: `exp_2.py`
