@@ -28,10 +28,7 @@ FashionMoCluster/
 │
 ├── data/                     # Directory for dataset (e.g., Fashion MNIST)
 │   ├── data.csv  # script to download Fashion-MNIST dataset
-│   ├── fashion-mnist_train.csv  # Fashion MNIST train dataset (CSV format)
 │   ├── fashion-mnist_test.csv  # Fashion MNIST test dataset (CSV format)
-│   ├── fashion-mnist_mixed.csv  # Fashion MNIST mixed dataset (CSV format)
-│
 │
 ├── embeddings/                # Directory for storing embeddings
 │   ├── moco_pretraining_embeddings.csv
