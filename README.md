@@ -24,7 +24,7 @@ pip install -r requirements.txt
 The project directory structure is as follows:
 
 ```graghql
-fashion_mnist_contrastive_learning/
+FashionMoCluster/
 │
 ├── data/                     # Directory for dataset (e.g., Fashion MNIST)
 │   ├── data.csv  # script to download Fashion-MNIST dataset
